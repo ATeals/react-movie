@@ -1,10 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import RouterProvider from "./Router";
+import { QueryProvider, RouterProvider, ThemeProvier } from "./components/Providers";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-    <React.StrictMode>
+  <React.StrictMode>
+    <QueryProvider>
+      <ThemeProvier>
+        <ReactQueryDevtools initialIsOpen={true} />
         <RouterProvider />
-    </React.StrictMode>
+      </ThemeProvier>
+    </QueryProvider>
+  </React.StrictMode>
 );
