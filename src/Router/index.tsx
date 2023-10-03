@@ -1,8 +1,25 @@
-import { RouterProvider as Provider } from "react-router";
-import { router } from "./router";
+import { createBrowserRouter } from "react-router-dom";
 
-const RouterProvider = () => {
-    return <Provider router={router} />;
-};
+import App from "@/App";
 
-export default RouterProvider;
+import { MovieDetail, Movies } from "@/pages";
+import { PATH } from "@/constants";
+
+export const router = createBrowserRouter([
+  {
+    path: PATH.ROOT,
+    element: <App />,
+    children: [
+      {
+        path: PATH.DYNAMIC_MOVIS,
+        element: <Movies />,
+        children: [
+          {
+            path: PATH.DETAIL,
+            element: <MovieDetail />,
+          },
+        ],
+      },
+    ],
+  },
+]);
