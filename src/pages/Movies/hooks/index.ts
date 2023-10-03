@@ -1,0 +1,1 @@
+export { useInfinityMovies } from "./useInfinityMovies";

@@ -1,3 +1,2 @@
-export { CommingSoon } from "./CommingSoon";
-export { Home } from "./Home";
-export { NowPlaying } from "./NowPlaying";
+export { Movies } from "./Movies";
+export { MovieDetail } from "./MovieDetail";
