@@ -1,7 +1,7 @@
 export const PATH = {
   ROOT: "/",
   DYNAMIC_MOVIS: ":pathName?",
-  DETAIL: "movie/:id",
+  DETAIL: "movie",
   MOVIES: {
     HOME: "",
     COMING_SOON: "upcoming",

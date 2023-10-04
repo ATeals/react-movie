@@ -10,13 +10,13 @@ const options = {
 export const getMovies = (type: string | undefined = "popular", next: number | undefined = 1): Promise<IAPIResponse> =>
   fetch(`${BASE_URL}/${type}?language=ko&page=${next}`, options).then((r) => r.json());
 
+export const getMovie = (id: string): Promise<IMovieDetail> => fetch(`${BASE_URL}/${id}?language=ko`, options).then((r) => r.json());
+
 export const getPopular = (next: number): Promise<IAPIResponse> => fetch(`${BASE_URL}/popular?language=ko&page=${next}`, options).then((r) => r.json());
 
 export const getNowPlaying = (next: number): Promise<IAPIResponse> => fetch(`${BASE_URL}/now_playing?language=ko&page=${next}`, options).then((r) => r.json());
 
 export const getComingSoon = (next: number): Promise<IAPIResponse> => fetch(`${BASE_URL}/upcoming?language=ko&page=${next}`, options).then((r) => r.json());
-
-export const getMovie = (id: string) => fetch(`${BASE_URL}/movie?id=${id}`).then((r) => r.json());
 
 export const makeImagePath = (image: string) => `https://image.tmdb.org/t/p/w500${image}`;
 
