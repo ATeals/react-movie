@@ -1,13 +1,14 @@
-import { GridContainer, MovieItem, SKMovieItem } from "./components";
+import { MovieItem, SKMovieItem } from "../MovieItem";
 
-import { useInfinityMovies } from "./hooks";
+import * as S from "./MovieList.styled";
+import { useInfinityMovies } from "./useInfinityMovies";
 
 export const MovieList = () => {
   const { data, isFetchingNextPage, bottomItemRef } = useInfinityMovies();
 
   return (
     <>
-      <GridContainer>
+      <S.GridContainer>
         {data?.pages.map((page) =>
           page.results.map((movie) => (
             <MovieItem
@@ -26,17 +27,17 @@ export const MovieList = () => {
         ) : (
           <div ref={bottomItemRef} />
         )}
-      </GridContainer>
+      </S.GridContainer>
     </>
   );
 };
 
 export const Skeleton = () => {
   return (
-    <GridContainer>
+    <S.GridContainer>
       {Array.from({ length: 10 }).map((_, i) => (
         <SKMovieItem key={i} />
       ))}
-    </GridContainer>
+    </S.GridContainer>
   );
 };

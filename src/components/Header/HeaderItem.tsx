@@ -4,10 +4,13 @@ import { motion } from "framer-motion";
 
 export const HeaderItem = ({ title, path }: { title: string; path: string }) => {
   const { pathname } = useLocation();
+
+  const category = pathname.split("/")[1];
+
   return (
     <li>
       <Link to={path}>
-        {pathname === "/" + path ? (
+        {category === path ? (
           <HighLight
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

@@ -15,7 +15,7 @@ export const router = createBrowserRouter([
         element: <Movies />,
         children: [
           {
-            path: PATH.DETAIL,
+            path: PATH.DETAIL + "/:id",
             element: <MovieDetail />,
           },
         ],
