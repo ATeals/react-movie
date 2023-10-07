@@ -3,16 +3,25 @@ const options = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization: `Bearer ${import.meta.env.VITE_API_TOKEN}`,
+    Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwMTcyMjQ3ZjRlZGMyZTM0MTYxNDU1NzE1YjhjNWFhNSIsInN1YiI6IjYxZTU3MjYwY2FlNjMyMDA0MTQ1OWE1MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.yW8o1FDyjkG6HVlSwFOMLNLU1Pk3eYg4MlNr8IwuLxk`,
   },
 };
 
-export const getMovies = (type: string | undefined = "popular", next: number | undefined = 1): Promise<IAPIResponse> =>
-  fetch(`${BASE_URL}/movie/${type}?language=ko&page=${next}`, options).then((r) => r.json());
+const fetcher = async (url: string) => {
+  const res = await fetch(`${BASE_URL}${url}`, options);
 
-export const getMovie = (id: string): Promise<IMovieDetail> => fetch(`${BASE_URL}/movie/${id}?language=ko`, options).then((r) => r.json());
+  const data = await res.json();
 
-export const searchMovie = (query: string) => fetch(`${BASE_URL}search/movie?query=${query}&include_adult=false&language=ko&page=1`);
+  if (res.status >= 400) throw { status: res.status, data };
+
+  return data;
+};
+
+export const getMovies = (type: string | undefined = "popular", next: number | undefined = 1): Promise<IAPIResponse> => fetcher(`movie/${type}?language=ko&page=${next}`);
+
+export const getMovie = (id: string): Promise<IMovieDetail> => fetcher(`movie/${id}?language=ko`);
+
+export const searchMovie = (query: string) => fetcher(`search/movie?query=${query}&include_adult=false&language=ko&page=1`);
 
 export const makeImagePath = (image: string) => `https://image.tmdb.org/t/p/w500${image}`;
 
