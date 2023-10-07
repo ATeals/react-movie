@@ -16,6 +16,7 @@ export const MovieItem = ({ movie }: { movie: IMovie }) => {
         key={movie.id}
         whileHover="hover"
         initial="normal"
+        animate="animate"
         variants={boxVariants}
         transition={{ type: "tween" }}
       >
@@ -39,6 +40,9 @@ export const Skeleton = () => {
 
 const boxVariants = {
   normal: {
+    scale: 0.6,
+  },
+  animate: {
     scale: 1,
   },
   hover: {
