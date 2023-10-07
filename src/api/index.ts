@@ -1,4 +1,4 @@
-const BASE_URL = "https://api.themoviedb.org/3/movie";
+const BASE_URL = "https://api.themoviedb.org/3/";
 const options = {
   method: "GET",
   headers: {
@@ -8,15 +8,11 @@ const options = {
 };
 
 export const getMovies = (type: string | undefined = "popular", next: number | undefined = 1): Promise<IAPIResponse> =>
-  fetch(`${BASE_URL}/${type}?language=ko&page=${next}`, options).then((r) => r.json());
+  fetch(`${BASE_URL}/movie/${type}?language=ko&page=${next}`, options).then((r) => r.json());
 
-export const getMovie = (id: string): Promise<IMovieDetail> => fetch(`${BASE_URL}/${id}?language=ko`, options).then((r) => r.json());
+export const getMovie = (id: string): Promise<IMovieDetail> => fetch(`${BASE_URL}/movie/${id}?language=ko`, options).then((r) => r.json());
 
-export const getPopular = (next: number): Promise<IAPIResponse> => fetch(`${BASE_URL}/popular?language=ko&page=${next}`, options).then((r) => r.json());
-
-export const getNowPlaying = (next: number): Promise<IAPIResponse> => fetch(`${BASE_URL}/now_playing?language=ko&page=${next}`, options).then((r) => r.json());
-
-export const getComingSoon = (next: number): Promise<IAPIResponse> => fetch(`${BASE_URL}/upcoming?language=ko&page=${next}`, options).then((r) => r.json());
+export const searchMovie = (query: string) => fetch(`${BASE_URL}search/movie?query=${query}&include_adult=false&language=ko&page=1`);
 
 export const makeImagePath = (image: string) => `https://image.tmdb.org/t/p/w500${image}`;
 

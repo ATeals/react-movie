@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { MovieList, SKMovieList } from "./MovieList";
 import { Outlet } from "react-router-dom";
-import { Aside } from "@/components/Aside";
+import { Aside } from "@/components";
 
 export const Movies = () => {
   return (

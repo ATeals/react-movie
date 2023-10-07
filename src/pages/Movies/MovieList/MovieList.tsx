@@ -1,6 +1,7 @@
 import { MovieItem, SKMovieItem } from "../MovieItem";
 
 import * as S from "./MovieList.styled";
+
 import { useInfinityMovies } from "./useInfinityMovies";
 
 export const MovieList = () => {
