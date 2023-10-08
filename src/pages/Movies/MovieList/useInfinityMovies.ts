@@ -16,7 +16,9 @@ export const useInfinityMovies = () => {
     getNextPageParam: (lastpage) => lastpage.page + 1,
   });
 
+  const movies = data?.pages.flatMap((page) => page.results);
+
   const { bottomItemRef } = useIntersectionObserver(() => fetchNextPage());
 
-  return { bottomItemRef, data, isFetchingNextPage };
+  return { bottomItemRef, movies, isFetchingNextPage };
 };

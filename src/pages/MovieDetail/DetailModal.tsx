@@ -7,7 +7,7 @@ import { useDetailModal } from "./useDetailModal";
 export const DetailModal = () => {
   const { id, movie, handleModalClose } = useDetailModal();
 
-  const { title, backdrop_path, overview, genres, vote_average, runtime, release_date, original_language } = movie!;
+  const { title, backdrop_path, overview, genres, vote_average, runtime, release_date, original_language } = movie;
 
   return (
     <S.ModalContainer onClick={handleModalClose}>
@@ -15,7 +15,7 @@ export const DetailModal = () => {
         <S.Poster.container $imgUrl={makeBgPath(backdrop_path)}>
           <S.Poster.title>{title}</S.Poster.title>
           <S.Poster.genres>
-            {genres.map((genre) => (
+            {genres?.map((genre) => (
               <span key={String(genre.id)}>#{genre.name}</span>
             ))}
           </S.Poster.genres>
@@ -23,7 +23,7 @@ export const DetailModal = () => {
 
         <S.Poster.description>{overview}</S.Poster.description>
         <S.Poster.Box>
-          <span>{original_language.toUpperCase()}</span>
+          <span>{original_language?.toUpperCase()}</span>
           <span> {runtime}분</span>
           <span>{vote_average}점</span>
           <span>{release_date}</span>

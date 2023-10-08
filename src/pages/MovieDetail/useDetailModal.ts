@@ -10,6 +10,8 @@ export const useDetailModal = () => {
 
   const { data } = useQuery([QUERY_KEY.MOVIE, id], () => getMovie(id!));
 
+  if (!data) throw new Error("Data Not Found");
+
   const handleModalClose = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.currentTarget !== e.target) return;
 
