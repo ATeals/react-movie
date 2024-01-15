@@ -5,12 +5,7 @@ import { HeaderItem } from "./HeaderItem";
 export const Header = () => {
   return (
     <S.Header>
-      <img
-        src="/images/logo.png"
-        alt="logo"
-        width={140}
-        height={100}
-      />
+      <img src="/react-movie/images/logo.png" alt="logo" width={140} height={100} />
       <nav>
         <S.HeaderList>
           {Object.keys(PATH.MOVIES).map((name) => (
