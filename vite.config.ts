@@ -13,7 +13,7 @@ export default defineConfig({
       name: "remote-app",
       filename: "remoteEntry.js",
       exposes: {
-        "./ReactMovie": "./src/App",
+        "./App": "./src/main",
       },
     }),
   ],
