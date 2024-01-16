@@ -15,7 +15,14 @@ export default defineConfig({
       exposes: {
         "./App": "./src/remote",
       },
-      shared: ["react", "react-dom"],
+      shared: [
+        "react",
+        "react-dom",
+        "react-router-dom",
+        "@tanstack/react-query",
+        "framer-motion",
+        "styled-components",
+      ],
     }),
   ],
   build: {
