@@ -8,7 +8,10 @@ export const useDetailModal = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
-  const { data } = useQuery([QUERY_KEY.MOVIE, id], () => getMovie(id!));
+  const { data } = useQuery({
+    queryKey: [QUERY_KEY.MOVIE, id],
+    queryFn: () => getMovie(id!),
+  });
 
   if (!data) throw new Error("Data Not Found");
 
