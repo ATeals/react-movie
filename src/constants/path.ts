@@ -1,5 +1,5 @@
 export const PATH = {
-  ROOT: "/",
+  ROOT: "",
   DYNAMIC_MOVIS: ":pathName?",
   DETAIL: "movie",
   SEARCH: "search",

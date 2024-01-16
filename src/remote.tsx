@@ -11,8 +11,8 @@ const Remote = () => {
       <ThemeProvier>
         <ReactQueryDevtools initialIsOpen={true} />
         <Routes>
-          <Route path={`${PATH.ROOT}/*`} element={<App />}>
-            <Route path={`${PATH.DYNAMIC_MOVIS}/*`} element={<Movies />}>
+          <Route path={`${PATH.ROOT}`} element={<App />}>
+            <Route path={`${PATH.DYNAMIC_MOVIS}`} element={<Movies />}>
               <Route path={`${PATH.DETAIL}/:id`} element={<MovieDetail />} />
             </Route>
           </Route>
